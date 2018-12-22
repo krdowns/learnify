@@ -1,0 +1,29 @@
+{% extends 'learnify/base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h2 class="purchased-header">Purchased Courses</h2>
+        <ul class="course-container">                
+                {% for purchase in purchases %}
+                <li class="course-row">
+                    <video height="300" controls>
+                        <source src="/media/{{purchase.course.preview_video}}" type="video/webm">
+                        Your browser does not support HTML5 video.
+                    </video>
+                    <div class="course-description">
+                        <a href="{% url 'course_detail' pk=purchase.course.id %}">
+                            <h3 class="course-title">{{ purchase.course.title }}</h3><br>
+                            <p>{{purchase.course.description}}</p>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        
+    
+
+    {% else %}
+        <h2><span><a href="index">Register</a></span> or <span><a href="login">login</a></span> to view your profile</h2>
+    {% endif %}
+
+{% endblock %}

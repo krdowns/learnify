@@ -1,0 +1,870 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #7FE8EF;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+main {
+  padding: 64px 0 0 0;
+  min-height: 70vh;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+a {
+  text-decoration: none;
+  color: #7FE8EF;
+}
+
+nav {
+  background: rgba(0,51,70, 1);
+  margin: 0;
+  position: fixed;
+  top: 0;
+  height: 64px;
+  width: 100vw;
+  z-index: 2;
+}
+
+nav ul {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.nav-profile-pic {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.hamburger:hover,
+.cross:hover,
+.nav-profile-pic:hover {
+  cursor:pointer;
+}
+
+
+
+/*//////////// dropdown profile menu ////////////*/
+
+
+.dropdown-item {
+  padding: 9px;
+  border-top: .5px solid #a7c4ce;
+  color: #003346;
+}
+
+.dropdown-item:hover {
+  opacity: 0.7;
+}
+
+.nav-dropdown {
+  position: fixed;
+  display: none;
+  background-color: #ccf1ff;
+  z-index: 100;
+  top: 64px;
+  margin-left: 77vw;
+  border-radius: 0 0 4px 4px;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+nav ul li {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+}
+
+nav ul li:hover {
+  color: #000;
+}
+
+nav ul li:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #7FE8EF;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+nav ul li:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+/*//////////// Landing Page index.html ////////////*/
+
+.welcome, .about {
+  text-align: center;
+  color: #7FE8EF;
+}
+
+.jumbotron {
+  background-color: #003346;
+  width: 500px;
+  border-radius: 25px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  margin-left: 20px;
+}
+
+.jumbotron label {
+  color: #7FE8EF;
+  font-weight: bold;
+}
+
+#registration {
+  background-color: rgba(0,51,70, 0.85);
+}
+
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jumbotron input {
+  border-radius: 100px;
+  margin-top: 10px;
+  width: 97%;
+  font-weight: bold;
+  color: #003346;
+}
+
+.jumbotron input[type='submit'] {
+  margin-bottom: 20px;
+}
+
+.jumbotron form {
+  padding-left: 10px;
+}
+
+.helptext {
+  display: none;
+}
+
+.register {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 25px;
+  color:whitesmoke;
+}
+
+.whattodo-header {
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 0px;
+}
+
+.whattodo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 60px;
+  margin-bottom: 12.5px;
+}
+
+.index-separator {
+  border: .5px solid white;
+  background-color: solid white;
+}
+
+.whattodo-article {
+  margin-right: 5%;
+  margin-left: 5%;
+  color: #7FE8EF;
+  text-align: center;
+}
+
+input[type="submit"] {
+  margin-bottom: 15px;
+  height: 50px;
+}
+
+/*//////////// background video ////////////*/
+
+.myvideo {
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+
+/*//////////// forms ////////////*/
+
+form a {
+  color: #333;
+}
+
+input,
+button,
+select {
+  height: 24px;
+}
+
+input,
+button,
+textarea {
+  border-style: none;
+  border-radius: 5px;
+  padding: 5px;
+  resize: none;
+}
+
+button:hover{
+  cursor:pointer;
+}
+
+/*//////////// login page ////////////*/
+
+
+.login {
+  color: #7FE8EF;
+  margin-left: 10px;
+}
+
+.no-account {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  color: #003346;
+  margin-left: 25px;
+}
+
+.register-here {
+  color: #003346;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.login-form input {
+  margin-bottom: 15px;
+}
+
+.login-form {
+  margin-left: 30%;
+  margin-bottom: 165px;
+}
+
+.login-form-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-label, .password-label {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+.password-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.username-and-password-input {
+  width: 500px;
+  height: 30px;
+  border-radius: 100px;
+  padding-left: 20px;
+}
+
+#login-button {
+  width: 125px;
+  height: 50px;
+  border-radius: 75px;
+  font-size: 20px;
+  background-color:#003346;
+  color: #7FE8EF;
+}
+
+.login-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.alert-success {
+  background-color: white;
+  width: 350px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #FFD9DF;
+  border: 1px red solid;
+}
+
+/*//////////// course create form end ////////////*/
+/*//////////// course page start ////////////*/
+
+.course-container {
+  margin: 0;
+  padding:0;
+}
+
+.course-row {
+  display: flex;
+  height: 300px;
+  margin: 24px 0;
+}
+
+.course-description {
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+  width: 100%;
+}
+
+.course-description h3 {
+  margin: 0;
+  color: whitesmoke;
+}
+
+.course-description p {
+  color: whitesmoke;
+}
+
+.course-description .course-price {
+  color: black;
+  font-weight: 800;
+}
+
+#search-icon {
+  height: 16px;
+  width: 16px;
+}
+
+#course-search {
+  background: #7FE8EF;
+  border-bottom: #003346 2px solid;
+  border-radius: 0;
+}
+#course-search:focus{
+  outline: none;
+}
+#course-search::placeholder{
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+#course-search-container {
+  display: flex;
+  margin-top: 8px;
+  padding: 0 12px;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content:flex-end;
+}
+
+/*//////////// course page end ////////////*/
+/*//////////// course detail page start ////////////*/
+
+.course-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding:0;
+  width: 100%;
+}
+
+.video-container {
+  margin: 10px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  width: 83.33%
+}
+/* ////////// create new course form //////////// */
+
+.new-course {
+  color: #003346;
+  margin-left: 15px;
+}
+
+.course-create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.course-preview-details {
+  width: 83.33%;
+}
+
+/*/////////// Review form //////////////////////*/
+
+.review-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-div {
+  width: 83.33%;
+}
+
+.review-form p {
+  width: 100%;
+}
+
+#id_title {
+  width: 50%;
+}
+
+#id_body {
+  width: 100%;
+}
+
+.save {
+  width: 100px;
+}
+
+.title-label {
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.title-input {
+  width: 300px;
+  height: 35px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.title-div {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 10px 10px 0;
+}
+
+#review-submit {
+  border-radius: 100px;
+  background-color: #003346;
+  width: 150px;
+  margin-top: 20px;
+  color: #7FE8EF;
+  font-size: 20px;
+}
+
+.review-header {
+  color: #003346;
+}
+
+/*reviews*/
+#review-container {
+  width: 83.33vw;
+}
+
+.review {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #58A2A6;
+  color: whitesmoke;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.review h4 {
+  margin: 0
+}
+
+.review p {
+  margin: 0
+}
+
+.review hr {
+  width: 100%;
+  border: 1px solid whitesmoke;
+}
+
+.review-user {
+  color:#003346
+}
+/*//////////// course detail page end ////////////*/
+.new-course-form {
+  width: 100%;
+}
+
+.new-course-form input {
+  width: 100%;
+  border-radius: 100px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.new-course-form label {
+  font-size: 25px;
+  color: #003346;
+}
+
+#id_description {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+}
+
+#id_category {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.create-course-div {
+  width: 500px;
+}
+
+.save {
+  width: 100%;
+  border-radius: 100px;
+  background-color: #003346;
+  color: #7FE8EF;
+  height: 50px;
+  font-size: 20px;
+}
+
+.edit, .delete, .add-video-button {
+  height:30px;
+  padding: 0 10px;
+  background: #C8EFF2;
+}
+/*//////////// video form container ////////////*/
+
+.video-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-video-form {
+  display: flex;
+  flex-direction: column;
+  color: #003346;
+  font-weight: 700;
+}
+
+.add-video-form input{
+  width: 100%;
+}
+/* ////////// stripe button start//////////// */
+
+button.stripe-button-el,
+button.stripe-button-el>span {
+  background-color: #003346;
+  color: white;
+  background-image: none;
+  padding-bottom: 2px;
+  height: 2.25em;
+}
+
+/* ////////////stripe button end///////////// */
+
+/*//////////// profile start ////////////*/
+
+.profile-pic {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  text-transform: capitalize;
+}
+
+.profile-info {
+  padding: 12px;
+}
+
+.purchased-header {
+  text-align: center;
+}
+
+/*//////////// profile end ////////////*/
+/*//////////// footer start ////////////*/
+
+footer {
+  background-color: #003346;
+  position: relative;
+  width: 100%;
+  height: 230px;
+  margin-top: 100px;
+  bottom: 0px;
+}
+
+.learnify-2018 {
+  color: #7FE8EF;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+.footer-ul {
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom-nav {
+  text-align: center;
+  padding-top: 5px;
+}
+
+.footer-ul li {
+  padding: 10px 10px 0 10px;
+  color: #7FE8EF;
+  font-size: 15px;
+  visibility: hidden;
+}
+
+footer .first-li a {
+  font-size: 40px;
+  font-weight: 700;
+  padding-bottom: -10px;
+  color: white;
+}
+
+.social-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.fa {
+  margin: 20px;
+}
+
+.names {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.our-names {
+  margin-right: 20px;
+  color: #7FE8EF;
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+/*///////// About Us Page Start ///////////*/
+
+.about-header {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.about-pic {
+  width:150px;
+  height:150px;
+  border-radius: 50%;
+}
+
+.about-container  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  text-align: center;
+  color: #454;
+}
+
+.about-article {
+  margin: 0 2.5%;
+}
+
+.about-separator {
+  border: 2px solid whitesmoke;
+  background-color: whitesmoke;
+}
+
+.about-body {
+  margin-bottom: 5%;
+  margin-top: 2.5%;
+}
+
+/*////////// About us page end ////////////////////*/
+
+
+/*////////// Hamburger Menu ////////////////////*/
+
+.hamburger {
+  height: 44px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: none;
+  z-index: 10;
+  padding: 14px 14px 0 0;
+}
+
+.cross {
+  height: 44px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 14px 14px 0 0;
+  display: none;
+}
+
+.hamburger-list {
+  margin-top: 64px;
+  position: absolute;
+  width: 100%;
+  background-color: #003346;
+  color: #7FE8EF;
+  z-index: 1;
+  display: none;
+}
+
+.hamburger-list li {
+  padding: 15px;
+  text-align: center;
+  border-top: 1px #7FE8EF solid;
+}
+
+.hamburger-list li :hover {
+  opacity: 0.7;
+}
+
+.hamburger-nav {
+  background-color: #003346;
+  z-index: 10;
+  display: none;
+}
+
+.chargemessage {
+  text-align: center;
+  margin-top: 14.5%;
+  margin-bottom: 14%;
+}
+
+/*/////////// Media Queries //////////////////////*/
+
+/* Course Page */
+@media screen and (max-width: 1137px) {
+  .course-row {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0 0 20px 0; 
+  }
+  .video-container{
+    flex-direction: column;
+    background: #333;
+  }
+}
+
+/* About Us Page */
+@media screen and (max-width:850px) {
+  
+  .about-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-article {
+    margin-top: 5%;
+  }
+
+  .container {
+    margin-right: 10px;
+  }
+
+  .whattodo-container {
+    display: flex;
+    flex-direction: column;
+  }  
+}
+
+@media screen and (max-width: 780px) {
+  .login-form {
+    width:100%;
+    margin-left: 15%;
+  }
+
+
+  .username-and-password-input{
+    width:75%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .no-account {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .username-and-password-input{
+    width:65%;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .base-nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+  .hamburger-nav {
+    display: block;
+  }
+  
+  .whattodo-container a {
+    width: 100vw;
+  }
+
+  footer {
+    font-size: 60%;
+  }  
+}
+
+@media screen and (max-width: 430px) {
+  .login-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .no-account {
+    margin-left: 0;
+  }
+}

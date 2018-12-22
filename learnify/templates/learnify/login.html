@@ -1,0 +1,36 @@
+{% extends 'learnify/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="login-form">
+        <h1 class="login">Login</h1>
+        <form class="login-form-2" method="post" action="{% url 'user_login' %}">
+            {% csrf_token %}
+            {# A more 'HTML' way of creating the login form #}
+            <div class="username-and-password">
+                <div class="username-div">
+                    <label class="username-label" for="username">Username</label>
+                    <input class="username-and-password-input" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="password-div">
+                    <label class="password-label" for="password">Password</label>
+                    <input class="username-and-password-input" type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="login-div">
+                <input id="login-button" type="submit" name="" value="Login">
+                <p class="no-account">Don't have an account yet?<a class="register-here" href="{% url 'index' %}">Register here</a>.</p>
+            </div>
+        </form>
+        {% for message in messages %}
+
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert">×</a>
+
+            {{ message }}
+
+        </div>
+{% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'learnify/base.html' %}
+
+{% block content %}
+    
+    <div class="course-preview-container">
+        <video class="preview-video" width="83.33%" controls>
+            <source src="/media/{{course.preview_video}}" type="{{course.preview_video_format}}">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="course-description course-preview-details">
+            <h3 class="course-title">{{ course.title }}</h3><br>
+            <p>{{course.description}}</p>
+            {% if purchased == True %}
+            <p>you already purchased this course</p>
+            {% endif %}
+            {% if logged_in_user.pk == course.owner_id %} 
+                <a><button class="delete">Delete Course</button><a/>
+                <a href="{% url 'edit_course' pk=course.id %}"><button class="edit">Edit Course</button><a/>
+                <a href="{% url 'add_video' pk=course.id %}"><button class="add-video-button">Add Video</button></a>
+            {% elif purchased == False %}
+            <p class="course-price">Price: ${{course.price}}</p>
+            <form action =  "{% url 'charge' pk=course.id %}" method="post">
+                {% csrf_token %}
+                <script src="https://checkout.stripe.com/checkout.js" 
+                class="stripe-button" 
+                data-key="{{stripe_key}}"
+                data-description="{{course.title}}" 
+                data-amount="{{course.price_total}}" 
+                data-locale="auto" 
+                data-label="Purchase Course">
+                </script>
+            </form>
+            {% endif %}
+        </div>
+        {% if purchased == True or logged_in_user.pk == course.owner_id%}
+            <ul class="video-list-container">
+            {% for video in videos %}
+                <li class="video-container" style="order:{{video.order_number}}"">
+                    <video height="300" controls>
+                        <source src="/media/{{video.video}}" type="{{video.video_format}}">
+                        Your browser does not support HTML5 video.
+                    </video>
+                    <div class="course-description">
+                        <a href="{% url 'course_detail' pk=course.id %}">
+                            <h3 class="course-title">{{ video.title }}</h3><br>
+                            <p>{{video.description}}</p>
+                        </a>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <div class="review-div">
+            <h2 class="review-header">Leave a Review</h2>
+            <form class="review-form" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default">Save Review</button>
+            </form>
+        </div>
+        {% endif %}
+        <div id="review-container">
+            <h3>Reviews</h3>
+            {% for review in reviews %}
+            <div class="review">
+                <h4 class="review-user">{{ review.author }} wrote:</h4>
+                <hr/>
+                <h4>{{ review.title }}</h4><br>
+                <p>{{ review.body }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+
+{% endblock %}

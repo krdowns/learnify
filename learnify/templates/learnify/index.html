@@ -1,0 +1,54 @@
+{% extends 'learnify/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<video loop autoplay muted class="myvideo">
+    <source src="static/media/videos/hero.webm" type="video/webm">
+</video>
+
+<h2 class="welcome">Welcome to Learnify!</h2>
+<p class="about">Advance your skills with in-depth classes. <br>Browse categories and videos to gain skills in what you
+    love.</p>
+<div class="registration-container">
+    <div class="container">
+        <div class="jumbotron" id="registration">
+            {% if user.is_authenticated %}
+            <div class="whattodo-container">
+                <a href="{% url 'courses' %}">
+                    <article class="whattodo-article">
+                        <h4 class="whattodo-header">
+                            Become a Student
+                        </h4>
+                        <p>
+                            Learn how to play an instrument, build a website, cook a meal. Thousands of user-created
+                            lessons at your fingertips.
+                        </p>
+                    </article>
+                </a>
+                <div class="index-separator"></div>
+                <a href="{% url 'course_create' %}">
+                    <article class="whattodo-article">
+                        <h4 class="whattodo-header">
+                            Become an Instructor
+                        </h4>
+                        <p>
+                            Create video lessons about your favorite topics to teach others. And the best part? Get
+                            paid for
+                            your content!
+                        </p>
+                    </article>
+                </a>
+            </div>
+            {% else %}
+            <h3 class="register">Register to get started</h3>
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                <input type="submit" name="" value="Register">
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

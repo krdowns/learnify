@@ -1,0 +1,27 @@
+{% extends 'learnify/base.html' %}
+
+{% block content %}
+<div id="course-search-container">
+    <input id="course-search" type="text" placeholder="search courses" /><img id="search-icon" src="/static/media/images/search.png">
+</div>
+<ul class="course-container">
+    {% for course in courses %}
+    <li class="course-row">
+        <video height="300" controls>
+            <source src="media/{{course.preview_video}}" type="{{course.preview_video_format}}">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="course-description">
+            <a href="{% url 'course_detail' pk=course.id %}">
+                <h3 class="course-title">{{ course.title }}</h3><br>
+                <p>{{course.description}}</p>
+            </a>
+                {% if user.is_authenticated and logged_in_user.pk == course.owner_id%} 
+                <a href="{% url 'edit_course' pk=course.id %}"><button class="edit">Edit Course</button><a/>
+                {% endif %}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
